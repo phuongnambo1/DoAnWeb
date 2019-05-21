@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Business Online </title>
+  <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <!-- Fontawesome core CSS -->
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+  <!--GOOGLE FONT -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <!--Slide Show Css -->
+  <!-- <link href="../../../public/assets/ItemSlider/css/main-style.css" rel="stylesheet" /> -->
+  <!-- custom CSS here -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <link rel="prefetch" href="assets/img/cao-su.png">
+
+</head>
+
+<body>
+  {{> header}}
+  <div class="container">
+    {{> banner}}
+    <div class="col-md-3">
+      {{>navbar}}
+    </div>
+
+    <div class="col-md-9">{{{body}}}</div>
+
+
+    {{>footer}}
+  </div>
+  <!-- Bootstrap JavaScript -->
+  {{!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
+
+  <script src="assets/js/jquery-1.10.2.js"></script>
+  <!--bootstrap JavaScript file  -->
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/effect.js"></script>
+</body>
+
+</html>
