@@ -6,12 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('express-handlebars');
 
-var routes = require('./routes/index');
+var home = require('./routes/Home');
+var BaiVietChiTiet = require('./routes/BaiVietChiTiet');
 
 var app = express();
 
 // view engine setup
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/templates/layouts/', partialsDir:  path.join(__dirname, '/views/templates/partials' )}));
+app.use('/bai-viet-chi-tiet', express.static(__dirname + '/public'));
+// app.set('/bai-viet-chi-tiet/bai-viet/','/public/');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -23,7 +26,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.get('/', (req, res) => {
+  res.redirect('/home');
+});
+app.use('/home', home);
+app.use('/bai-viet-chi-tiet', BaiVietChiTiet);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
