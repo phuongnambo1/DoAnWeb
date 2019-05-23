@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('express-handlebars');
-var home = require('./routes/Home');
-var BaiVietChiTiet = require('./routes/BaiVietChiTiet');
+var home = require('./controllers/Home');
+var BaiVietChiTiet = require('./controllers/BaiVietChiTiet');
 var hbs_Sec = require('express-handlebars-sections');
 var app = express();
 
