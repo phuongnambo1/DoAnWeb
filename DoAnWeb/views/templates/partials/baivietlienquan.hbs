@@ -1,0 +1,10 @@
+<dl class="extra-menu" id="bai-viet-lien-quan">
+    <dt class="title-extra-menu">Bài viết liên quan</dt>
+    {{#each BVLQ}}
+    <dt class="extra-dt" style="background-image: url('{{hinh_anh}}');">
+        <div class="title-extra">
+            <a class="extra-text" href="/bai-viet-chi-tiet/{{id}}">{{tieu_de}}</a>
+        </div>
+    </dt>
+    {{/each}}
+</dl>

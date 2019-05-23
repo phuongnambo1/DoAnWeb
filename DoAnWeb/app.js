@@ -5,14 +5,27 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('express-handlebars');
-
 var home = require('./routes/Home');
 var BaiVietChiTiet = require('./routes/BaiVietChiTiet');
-
+var hbs_Sec = require('express-handlebars-sections');
 var app = express();
 
 // view engine setup
-app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/templates/layouts/', partialsDir:  path.join(__dirname, '/views/templates/partials' )}));
+app.engine('hbs', hbs({
+  extname: 'hbs', 
+  defaultLayout: 'layout', 
+  helpers: {
+    section: hbs_Sec(),
+    xif: function(v1, v2, options) {
+      if(v1 === v2) {
+        return options.fn(this);
+      }
+      return options.inverse(this);
+    }
+  },
+  layoutsDir: __dirname + '/views/templates/layouts/', 
+  partialsDir:  path.join(__dirname, '/views/templates/partials',
+  )}));
 app.use('/bai-viet-chi-tiet', express.static(__dirname + '/public'));
 // app.set('/bai-viet-chi-tiet/bai-viet/','/public/');
 app.set('views', path.join(__dirname, 'views'));

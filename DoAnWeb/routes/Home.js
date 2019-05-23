@@ -113,7 +113,7 @@ router.get('/', function(req, res, next) {
     vị thế cho mặt hàng này`
   }
   ];
-  res.render('index', { BDNB: BDNoiBat, BDXN: BDXemNhieuNhat, BDMN: BDMoiNhat, BDCM: BDTopChuyenMuc,
+  res.render('index', { Page: "home", BDNB: BDNoiBat, BDXN: BDXemNhieuNhat, BDMN: BDMoiNhat, BDCM: BDTopChuyenMuc,
                         BDNBCount: BDNoiBat.length, BDXNCount: BDXemNhieuNhat.length, BDMNCount: BDMoiNhat.length, BDCMCount: BDTopChuyenMuc.length });
 });
 
