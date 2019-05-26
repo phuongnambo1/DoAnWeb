@@ -18,18 +18,18 @@
   <!-- custom CSS here -->
   <link href="assets/css/style.css" rel="stylesheet" />
   <link rel="prefetch" href="assets/img/cao-su.png">
-
 </head>
 
 <body>
   {{> header}}
   <div class="container">
+    <h1>{{kat}}</h1>
     {{#xif Page "home"}}
-        {{> banner}}
+    {{> banner}}
     {{else}}
-        {{>AdsBanner}}
+    {{>AdsBanner}}
     {{/xif}}
-    
+
     <div class="col-md-3">
       {{>navbar}}
     </div>
@@ -37,8 +37,14 @@
     {{#xif Page "home"}}
     <div class="col-md-9">{{{body}}}</div>
     {{else}}
-    <div class="col-md-6">{{{body}}}</div>
-    <div class="col-md-3">{{>baivietlienquan}}</div>
+    <div class="col-md-6">
+      {{{body}}}
+      {{>comment}}
+    </div>
+    <div class="col-md-3">
+      {{>baivietlienquan}}
+    </div>
+
     {{/xif}}
 
 
@@ -46,11 +52,14 @@
   </div>
   <!-- Bootstrap JavaScript -->
   {{!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
-
+  {{#xif Page "home"}}
+      <script src="assets/js/effect.js"></script>
+  {{/xif}}
+   {{#xif Page "BaiVietChiTiet"}}
+      <script src="assets/js/comment.js"></script>
+  {{/xif}}
   <script src="assets/js/jquery-1.10.2.js"></script>
   <!--bootstrap JavaScript file  -->
-  <script src="assets/js/bootstrap.js"></script>
-  <script src="assets/js/effect.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,54 @@
+<div style="margin-top: 100px; margin-bottom: 100px;" id="comments-area">
+    <div class="card">
+        <h5 class="card-header"><strong>Viết bình luận :</strong></h5>
+        <div class="card-body">
+            <form  method="POST" id="form-parent-comment" action="/bai-viet-chi-tiet/{{BD.id}}">
+                <div class="form-group">
+                    <textarea class="form-control" name="comment" rows="3"></textarea>
+                </div>
+                <input type="hidden" name="ParentCommentID" value="underfine" />
+                <button style="float: right;margin-right: 10px;width: 100px;" type="submit"
+                    class="btn btn-primary">Đăng</button>
+            </form>
+        </div>
+    </div>
+
+    {{#each Comment}}
+    <div class="media mb-4">
+        <img class="d-flex mr-3 rounded-circle" src="{{avatar}}" style="height: 50px; width: 50px; margin-right:10px; "
+            alt="">
+        <div class="media-body" id="comment{{id}}" style="width: 100%;">
+            <h5 class="mt-0"><strong> {{ten}} </strong></h5>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i> {{dataTime}} </span></li>
+            </ul>
+            <p>
+                {{noi_dung}}
+            </p>
+            <a onclick="ClickTraLoiCmt({{id}},{{../BD.id}})"> Trả Lời </a>
+            {{#xif so_cmt_con 0}} 
+            {{!--khong co comment con thi khong lam gi --}}
+            {{else}}
+            {{#each rep_cmt}}
+            <div class="media mt-4">
+                <img class="d-flex mr-3 rounded-circle" src="{{avatar}}"
+                    style="height: 50px; width: 50px; margin-right:10px; " alt="">
+                <div class="media-body">
+                    <h5 class="mt-0"><strong> {{ten}} </strong></h5>
+                    <ul class="list-inline list-unstyled">
+                        <li><span><i class="glyphicon glyphicon-calendar"></i> {{dataTime}}</span>
+                        </li>
+                    </ul>
+                    <p>
+                        {{noi_dung}}
+                    </p>
+                </div>
+            </div>
+            {{/each}}
+            {{/xif}}
+
+        </div>
+    </div>
+    {{/each}}
+
+</div>
