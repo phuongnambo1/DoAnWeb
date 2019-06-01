@@ -6,9 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('express-handlebars');
 var home = require('./routes/Home');
-var BaiVietChiTiet = require('./routes/BaiVietChiTiet');
 var hbs_Sec = require('express-handlebars-sections');
 var app = express();
+
+var BaiVietChiTiet = require('./routes/BaiVietChiTiet');
+var taiKhoanController = require('./controllers/TaiKhoanController');
+var docGiaController = require('./controllers/DocGiaController');
 
 // view engine setup
 app.engine('hbs', hbs({
@@ -27,6 +30,8 @@ app.engine('hbs', hbs({
   partialsDir:  path.join(__dirname, '/views/templates/partials',
   )}));
 app.use('/bai-viet-chi-tiet', express.static(__dirname + '/public'));
+app.use('/taikhoan', express.static(__dirname + '/public'));
+app.use('/docgia', express.static(__dirname + '/public'));
 // app.set('/bai-viet-chi-tiet/bai-viet/','/public/');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -44,6 +49,8 @@ app.get('/', (req, res) => {
 });
 app.use('/home', home);
 app.use('/bai-viet-chi-tiet', BaiVietChiTiet);
+app.use('/taikhoan', taiKhoanController);
+app.use('/docgia', docGiaController);
 
 
 // catch 404 and forward to error handler
