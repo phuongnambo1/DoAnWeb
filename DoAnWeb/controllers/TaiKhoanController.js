@@ -9,8 +9,8 @@ router.get('/dangnhap', function (req, res, next) {
 
 router.get('/dangnhapnguoidung', (req, res) => {
     var user = {
-        username: req.body.usernamelogin,
-        password: req.body.passwordlogin
+        userName: req.body.username,
+        passWord: req.body.password
     };
     console.log(user.username + "-" + user.password);
     taikhoanRepository.login(user).then(rows => {
@@ -41,16 +41,17 @@ router.post('/dangky', (req, res) => {
         if (value[0].total == 0) {
             var user = {
                 chuc_vu: 1,
-                username: req.body.username,
-                password: req.body.password,
+                username: req.body.ten_dang_nhap,
+                password: req.body.mat_khau,
                 ten_nguoi_dung: req.body.ten_nguoi_dung,
                 bi_danh: '',
-                ngay_sinh: req.body.dob,
-                so_dien_thoai: req.body.sdt,
+                ngay_sinh: req.body.ngay_sinh,
+                so_dien_thoai: req.body.so_dien_thoai,
                 email: req.body.email,
-                dia_chi: req.body.address,
+                dia_chi: req.body.dia_chi,
                 tinh_trang: 1
             };
+            console.log(user);
             mes = 'Đăng ký tài khoản thành công !!';
             taikhoanRepository.add(user).then(value => {
                 res.render('taikhoan/login', { layout: undefined });
@@ -69,20 +70,31 @@ router.get('/doimatkhau', (req, res) => {
 });
 
 router.put('/doimatkhau', function (req, res) {
+    req.checkBody('matkhau','Mật khẩu không được để trống').notEmpty();
+    req.checkBody('matkhau1', 'Mật khẩu mới không được để trống').notEmpty();
+    req.checkBody('matkhau1', 'Mật khẩu không được nhỏ hơn 6 kí tự').isLength({ min: 6 });
+    req.checkBody('matkhau2', 'Mật khẩu không trùng.').equals(req.body.matkhau1);
+    var errors = req.validationErrors();
+
     var user = {
         // TODO: add session
         // username: req.session.curUser.username,
-        // password: sha256(req.body.oldpw).toString(),
-        // newpassword: sha256(req.body.newpw).toString()
+        // password: sha256(req.body.oldpw).toString()
     };
     taikhoanRepository.login(user).then(rows => {
         if (rows.length > 0) {
             taikhoanRepository.changePassword(user).then(row => {
-                res.render('/')
+                res.render('/', 
+                {
+                    message: "Đổi mật khẩu thành công !!"
+                })
             })
         }
-        else {
-            /* Show message err */
+        if(errors) {
+            res.render('taikhoan/doimatkhau', 
+            { 
+                errors: errors,
+                layout: undefined });
         }
     });
 });

@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 exports.getDocGiaById = docGiaId => {
-    var sql = `select * from nguoi_dung where id = ${docGiaId}`;
+    var sql = `select * from nguoi_dung where id = ${docGiaId} and chuc_vu_id = 1`;
     return data.load(sql);
 }
 

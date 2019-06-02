@@ -91,26 +91,28 @@
             <div class="col-md-12">
                 <!--div change info-->
                 <div>
-                    <div class="form-group input-login">
-                        <h2><strong>Thay đổi mật khẩu</strong></h2>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="ownpass-update" placeholder="Mật khẩu cũ"
-                                required="required">
+                    <form method="put">
+                        <div class="form-group input-login">
+                            <h2><strong>Thay đổi mật khẩu</strong></h2>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input type="password" class="form-control" name="matkhau" id="ownpass-update"
+                                    placeholder="Mật khẩu cũ">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input type="password" class="form-control" name="matkhau1" id="newpass-update"
+                                    placeholder="Mật khẩu mới">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                                <input type="password" class="form-control" name="matkhau2" id="newpass-update"
+                                    placeholder="Nhập lại mật khẩu mới">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Cập nhật mật khẩu</button>
                         </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" id="newpass-update" placeholder="Mật khẩu mới"
-                                required="required">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                            <input type="password" class="form-control" id="newpass-update" placeholder="Nhập lại mật khẩu mới"
-                                required="required">
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Cập nhật mật khẩu</button>
-                    </div>
+                    </form>
                 </div>
             </div>
 

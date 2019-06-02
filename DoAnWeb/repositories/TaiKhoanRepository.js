@@ -9,7 +9,7 @@ exports.createBaiDang = baiDang => {
 }
 
 exports.login = user =>{
-    var sql = `select * from nguoi_dung where username = '${user.username}' and password = '${user.password}'`;
+    var sql = `select * from nguoi_dung where username = '${user.userName}' and password = '${user.passWord}'`;
     return data.load(sql);
 }
 
