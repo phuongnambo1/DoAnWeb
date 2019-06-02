@@ -26,16 +26,16 @@
         <h2>Đăng nhập dưới đây</h2>
     </div>
 
-    <form action="/taikhoan/dangnhap" method="post" name="login">
+    <form action="/taikhoan/dangnhapnguoidung" method="get" name="login">
         <div class="form-group input-login">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Tên đăng nhập"
+                <input type="text" class="form-control" id="usernamelogin" name="usernamelogin" placeholder="Tên đăng nhập"
                     required="required">
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu"
+                <input type="password" class="form-control" id="passwordlogin" name="passwordlogin" placeholder="Mật khẩu"
                     required="required">
             </div>
             <br>
@@ -45,18 +45,18 @@
     </form>
 
     <hr>
-    <div class="noti-center">
+    {{!-- <div class="noti-center">
         <h2>Nếu chưa có tài khoản, đăng ký ngay nào</h2>
     </div>
-    <form action="/taikhoan/dangnhap" method="post" name="registry">
+    <form action="/taikhoan/dangky" method="post" name="registry">
         <div class="form-group input-login">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Tên đăng nhập" required="required">
+                <input type="text" class="form-control" id="ten_dang_nhap" name="ten_dang_nhap" placeholder="Tên đăng nhập" required="required">
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu" required="required">
+                <input type="password" class="form-control" id="mat_khau" name="mat_khau" placeholder="Mật khẩu" required="required">
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -86,6 +86,6 @@
             <br>
             <button type="submit" class="btn btn-info" id="signup">Đăng ký</button>
         </div>
-    </form>
+    </form> --}}
 
 </body>

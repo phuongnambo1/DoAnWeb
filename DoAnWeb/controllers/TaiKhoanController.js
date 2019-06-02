@@ -7,33 +7,35 @@ router.get('/dangnhap', function (req, res, next) {
     res.render('taikhoan/login', { layout: undefined });
 });
 
-// router.post('/dangnhap', (req, res) => {
-//     var user = {
-//         username: req.body.username,
-//         password: (req.body.password).toString()
-//     };
-//     taikhoanRepository.login(user).then(rows => {
-//         if (rows.length > 0) {
-//             // req.session.isLogged = true;
-//             // req.session.curUser = rows[0];
-
-//             var url = req.header('Referer');
-//             if (url = "http://localhost:8000/taikhoan/dangnhap")
-//                 res.redirect("/");
-//             else
-//                 res.render('taikhoan/login', { layout: undefined });
-//         } else {
-//             var vm = {
-//                 showError: true,
-//                 errorMsg: 'Login failed'
-//             };
-//             res.render('taikhoan/login', { layout: undefined });
-//         }
-//     });
-// });
+router.get('/dangnhapnguoidung', (req, res) => {
+    var user = {
+        username: req.body.usernamelogin,
+        password: req.body.passwordlogin
+    };
+    console.log(user.username + "-" + user.password);
+    taikhoanRepository.login(user).then(rows => {
+        if (rows.length > 0) {
+            // req.session.isLogged = true;
+            // req.session.curUser = rows[0];
+            console.log("dang nhap thanh cong");
+            var url = req.header('Referer');
+            if (url = "http://localhost:8000/taikhoan/dangnhap")
+                res.redirect("/");
+            else
+                res.redirect('/home');
+        } else {
+            console.log("dang nhap that bai");
+            var vm = {
+                showError: true,
+                errorMsg: 'Login failed'
+            };
+            res.render('taikhoan/login', { layout: undefined });
+        }
+    });
+});
 
 /*------------------ DANG KY--------------------------*/
-router.post('/dangnhap', (req, res) => {
+router.post('/dangky', (req, res) => {
     var mes;
     taikhoanRepository.checkAccountExist(req.body.username).then(value => {
         if (value[0].total == 0) {
@@ -66,7 +68,7 @@ router.get('/doimatkhau', (req, res) => {
     res.render('taikhoan/doimatkhau', { layout: undefined });
 });
 
-router.put('/doimatkhau', function (req, res) { 
+router.put('/doimatkhau', function (req, res) {
     var user = {
         // TODO: add session
         // username: req.session.curUser.username,
@@ -94,7 +96,7 @@ router.put('/quenmatkhau', function (req, res) {
         // TODO: add session
         // username: req.session.curUser.username,
     };
-    
+
 });
 
 module.exports = router;
