@@ -8,30 +8,35 @@ var hbs = require('express-handlebars');
 var home = require('./routes/Home');
 var hbs_Sec = require('express-handlebars-sections');
 var app = express();
+var session = require('express-session');
+var expressValidator = require('express-validator');
 
 var BaiVietChiTiet = require('./routes/BaiVietChiTiet');
 var taiKhoanController = require('./controllers/TaiKhoanController');
 var docGiaController = require('./controllers/DocGiaController');
+var phongVienController = require('./controllers/DocGiaController');
 
 // view engine setup
 app.engine('hbs', hbs({
-  extname: 'hbs', 
-  defaultLayout: 'layout', 
+  extname: 'hbs',
+  defaultLayout: 'layout',
   helpers: {
     section: hbs_Sec(),
-    xif: function(v1, v2, options) {
-      if(v1 === v2) {
+    xif: function (v1, v2, options) {
+      if (v1 === v2) {
         return options.fn(this);
       }
       return options.inverse(this);
     }
   },
-  layoutsDir: __dirname + '/views/templates/layouts/', 
-  partialsDir:  path.join(__dirname, '/views/templates/partials',
-  )}));
+  layoutsDir: __dirname + '/views/templates/layouts/',
+  partialsDir: path.join(__dirname, '/views/templates/partials',
+  )
+}));
 app.use('/bai-viet-chi-tiet', express.static(__dirname + '/public'));
 app.use('/taikhoan', express.static(__dirname + '/public'));
 app.use('/docgia', express.static(__dirname + '/public'));
+app.use('/phongvien', express.static(__dirname + '/public'));
 // app.set('/bai-viet-chi-tiet/bai-viet/','/public/');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -51,10 +56,36 @@ app.use('/home', home);
 app.use('/bai-viet-chi-tiet', BaiVietChiTiet);
 app.use('/taikhoan', taiKhoanController);
 app.use('/docgia', docGiaController);
+app.use('/phongvien', phongVienController);
 
+// session
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+
+}))
+
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function (param, msg, value) {
+    var namespace = param.split('.')
+      , root = namespace.shift()
+      , formParam = root;
+
+    while (namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param: formParam,
+      msg: msg,
+      value: value
+    };
+  }
+}));
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -65,7 +96,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -76,7 +107,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,

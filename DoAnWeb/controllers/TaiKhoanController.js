@@ -15,8 +15,8 @@ router.get('/dangnhapnguoidung', (req, res) => {
     console.log(user.username + "-" + user.password);
     taikhoanRepository.login(user).then(rows => {
         if (rows.length > 0) {
-            // req.session.isLogged = true;
-            // req.session.curUser = rows[0];
+            req.session.isLogged = true;
+            req.session.curUser = rows[0];
             console.log("dang nhap thanh cong");
             var url = req.header('Referer');
             if (url = "http://localhost:8000/taikhoan/dangnhap")
@@ -78,8 +78,8 @@ router.put('/doimatkhau', function (req, res) {
 
     var user = {
         // TODO: add session
-        // username: req.session.curUser.username,
-        // password: sha256(req.body.oldpw).toString()
+        username: req.session.curUser.username,
+        password: req.body.matkhau
     };
     taikhoanRepository.login(user).then(rows => {
         if (rows.length > 0) {
