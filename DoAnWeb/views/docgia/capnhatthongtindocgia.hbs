@@ -144,9 +144,15 @@
 
             <div class="col-md-9">
                 <!--div change info-->
+                {{#with docgia}}
                 <div>
                     <div class="card">
                         <img src="../assets/img/profile.png" alt="avatar" style="width:100%">
+                        {{!-- <h1>{{ten_nguoi_dung}}</h1>
+                        <p>{{ngay_sinh}}</p>
+                        <p>{{dia_chi}</p>
+                        <p>{{so_dien_thoai}</p>
+                        <p>{{email}}</p> --}}
                         <h1>Nguyễn Khánh Hòa</h1>
                         <p>CMND: 999999999</p>
                         <p>Địa chỉ: TPHCM</p>
@@ -156,29 +162,34 @@
                     </div>
                     <div id="change" class="collapse form-group input-login">
                         <h2>Thay đổi thông tin</h2>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" id="fullname-change" placeholder="Họ và tên"
-                                required="required">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input type="email" class="form-control" id="email-change" placeholder="Địa chỉ email"
-                                required="required">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                            <input type="tel" class="form-control" id="phone-number-change" placeholder="Số điện thoại"
-                                required="required">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
-                            <input type="tel" class="form-control" id="address-change" placeholder="Địa chỉ" required="required">
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        <form action="/docgia/capnhatthongtindocgia" method="put" class="form-horizontal" role="form"  name="profile">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input type="text" class="form-control" id="fullname-change" placeholder="Họ và tên"
+                                    required="required">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input type="email" class="form-control" id="email-change" placeholder="Địa chỉ email"
+                                    required="required">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                                <input type="tel" class="form-control" id="phone-number-change" placeholder="Số điện thoại"
+                                    required="required">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                                <input type="tel" class="form-control" id="address-change" placeholder="Địa chỉ"
+                                    required="required">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+
+                        </form>
                     </div>
                 </div>
+                {{/with}}
             </div>
 
 

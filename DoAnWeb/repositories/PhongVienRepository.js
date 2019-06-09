@@ -31,3 +31,7 @@ exports.updateThongTin = user => {
     var sql = `update nguoi_dung set ten_nguoi_dung = '${user.ten_nguoi_dung}', email = '${user.email}', bi_danh = '${user.bi_danh}', so_dien_thoai = '${user.so_dien_thoai}', dia_chi ='${user.dia_chi}'  where id = '${user.id}'`;
     return data.load(sql);
 }
+
+
+
+
