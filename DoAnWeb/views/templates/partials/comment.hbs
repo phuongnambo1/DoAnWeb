@@ -12,7 +12,11 @@
             </form>
         </div>
     </div>
-
+<script>
+    $("form-parent-comment").submit(function(){
+    return false;
+  });
+</script>
     {{#each Comment}}
     <div class="media mb-4">
         <img class="d-flex mr-3 rounded-circle" src="{{avatar}}" style="height: 50px; width: 50px; margin-right:10px; "

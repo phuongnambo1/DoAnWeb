@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+
+
 function DataInit() {
   // get bai dang by id: id lấy ra từ: req.params.id
   var BaiDang = {
@@ -171,6 +173,8 @@ var data = DataInit();
 router.get('/:id', function(req, res, next) {
     res.render('baiviet/bai-viet-chi-tiet', data  );
 });
+
+
 router.post('/:id', (req, res) => {
   console.log(req.params.id);
   console.log(req.body);
@@ -189,7 +193,7 @@ router.post('/:id', (req, res) => {
   } else { // rep cmt
     data.Comment.forEach(element => {
       if(element.id == val.ParentCommentID) { // timf commet cha
-         // thay thi them cmt com vao, push vao data base nhe
+         // thay thi them cmt con vao, push vao data base nhe
          element.rep_cmt.push({
             id: 10,
             avatar: "assets/img/cmt-hinh-4.jpg",
