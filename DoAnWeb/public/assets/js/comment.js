@@ -10,7 +10,7 @@ function ClickTraLoiCmt(id, BVId) {
             <div style="width: 100%;">
                 <h5 class="card-header"><strong>Viết bình luận :</strong></h5>
                  <div class="card-body">
-                     <form  method="POST" id="form-parent-comment" action="/bai-viet-chi-tiet/` + BVId +`">
+                     <form  method="POST" onsubmit="submitForm()" action="/bai-viet-chi-tiet/` + BVId +`">
                         <div class="form-group">
                               <textarea class="form-control" name="comment" rows="3"></textarea>
                         </div>
@@ -28,4 +28,7 @@ function ClickTraLoiCmt(id, BVId) {
 
 function AddParentComment() {
     var comments = document.getElementById();
+}
+function submitForm() {
+    return;
 }

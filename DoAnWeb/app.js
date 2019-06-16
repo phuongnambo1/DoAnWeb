@@ -5,8 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('express-handlebars');
-var home = require('./controllers/Home');
-var BaiVietChiTiet = require('./controllers/BaiVietChiTiet');
 var hbs_Sec = require('express-handlebars-sections');
 var app = express();
 var session = require('express-session');
@@ -15,7 +13,10 @@ var expressValidator = require('express-validator');
 var BaiVietChiTiet = require('./controllers/BaiVietChiTiet');
 var taiKhoanController = require('./controllers/TaiKhoanController');
 var docGiaController = require('./controllers/DocGiaController');
-var phongVienController = require('./controllers/PhongVienController');
+var baivietController = require('./controllers/QuanLyBaiVietController');
+var home = require('./controllers/Home');
+var BaiVietChiTiet = require('./controllers/BaiVietChiTiet');
+var adminController = require('./controllers/AdminController');
 
 // view engine setup
 app.engine('hbs', hbs({
@@ -37,7 +38,8 @@ app.engine('hbs', hbs({
 app.use('/bai-viet-chi-tiet', express.static(__dirname + '/public'));
 app.use('/taikhoan', express.static(__dirname + '/public'));
 app.use('/docgia', express.static(__dirname + '/public'));
-app.use('/phongvien', express.static(__dirname + '/public'));
+app.use('/baiviet', express.static(__dirname + '/public'));
+app.use('/admin', express.static(__dirname + '/public'));
 // app.set('/bai-viet-chi-tiet/bai-viet/','/public/');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -46,7 +48,7 @@ app.set('view engine', 'hbs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -59,7 +61,8 @@ app.use('/home', home);
 app.use('/bai-viet-chi-tiet', BaiVietChiTiet);
 app.use('/taikhoan', taiKhoanController);
 app.use('/docgia', docGiaController);
-app.use('/phongvien', phongVienController);
+app.use('/baiviet', baivietController);
+app.use('/admin', adminController);
 
 // // session
 app.use(session({

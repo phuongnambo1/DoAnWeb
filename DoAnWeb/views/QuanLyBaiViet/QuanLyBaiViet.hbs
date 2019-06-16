@@ -1,11 +1,7 @@
 <div class="col-md-9">
-    <!--div change info-->
-    <div>
-        <!-- Quản lý bài viêt -->
-        <div>
-            <h2>Quản lý bài viết của bạn</h2>
+    <h2>{{TableName}}</h2>
             <hr>
-            <div class="table100 ver3">
+            <div class="table100 ver3" style="overflow-y: auto; height: 480px;">
                 <table data-vertable="ver3">
                     <thead>
                         <tr class="row100 head">
@@ -23,18 +19,12 @@
                             <td class="column100 column2" data-column="column2">{{tags}}</td>
                             <td class="column100 column3" data-column="column3">{{author}}</td>
                             <td class="column100 column4" data-column="column4">{{date}}</td>
-                            <td class="column100 column5" data-column="column5">
-                                <a> Edit </a>
-                                |
-                                <a> Details </a>
-                                |
-                                <a onclick="onRowClickDelete('{{id}}')"> Delete </a>
+                            <td class="column100 column5" data-column="column5" style="text-align: center;">
+                                <a onclick="onRowClickDetails('{{id}}')"> Details </a>
                             </td>
                         </tr>
                         {{/each}}
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
 </div>

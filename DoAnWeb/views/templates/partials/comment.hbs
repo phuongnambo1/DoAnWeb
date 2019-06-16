@@ -2,7 +2,7 @@
     <div class="card">
         <h5 class="card-header"><strong>Viết bình luận :</strong></h5>
         <div class="card-body">
-            <form  method="POST" id="form-parent-comment" action="/bai-viet-chi-tiet/{{BD.id}}">
+            <form  method="POST" onsubmit="submitForm()" action="/bai-viet-chi-tiet/{{BD.id}}">
                 <div class="form-group">
                     <textarea class="form-control" name="comment" rows="3"></textarea>
                 </div>
@@ -12,11 +12,7 @@
             </form>
         </div>
     </div>
-<script>
-    $("form-parent-comment").submit(function(){
-    return false;
-  });
-</script>
+
     {{#each Comment}}
     <div class="media mb-4">
         <img class="d-flex mr-3 rounded-circle" src="{{avatar}}" style="height: 50px; width: 50px; margin-right:10px; "
