@@ -15,14 +15,14 @@ router.get('/danhmuc',function (req, res, next) {
         Status: 'áv',
         Type: 'ád',
         Date: 'ád',
-        Id: 2
+        Id: 3
     },
     {
         Name: '123',
         Status: 'áv',
         Type: 'ád',
         Date: 'ád',
-        Id: 3
+        Id: 4
     }];
     res.render('Admin/admin',
         {
@@ -236,15 +236,96 @@ router.get('/baiviet',function (req, res, next) {
         author: 'Khánh',
         date: '12/06/2019'
     }];
+    var baiVietLoaiBo = [{
+        id: '1',
+        titleBV: 'Testáe1',
+        tags: 'Nông sản',
+        author: 'Kha',
+        date: '12/06/2019'
+    },{
+        id: '2',
+        titleBV: 'Tetitle2',
+        tags: 'Nôngsản2',
+        author: 'Khá',
+        date: '12/060192'
+    },{
+        id: '3',
+        titleBV: 'Teitle3',
+        tags: 'Nông sản3',
+        author: 'Khánh',
+        date: '12/06/019'
+    }];
     res.render('Admin/admin',
         {
             layout: 'subLayout',
             displayDetail: 'false',
             displayDashboard: 'true',
             tagAdmin: 'BaiViet',
-            BaiViet: baiVietDaPheDuyet,
+            BaiVietDaDuyet: baiVietDaPheDuyet,
+            BaiVietLoaiBo: baiVietLoaiBo,
+            BaiVietChuaDuyet: baiVietChuaPheDuyet,
             TableName: 'Tag bài viết'
         });
+});
+router.post('/baiviet',function (req, res, next) {
+    console.log(req.body);
+
+    if(req.body.action === "remove"){ //remove mot bai viet trong bai da duyet va chuyen qua bài viết đã loại bỏ
+        //xử lý ở đây, chủ yếu đổi trạng thái nó lại thành đã loại bỏ
+    } else if (req.body.action === "approve") {
+        //xử lý ở đây, chủ yếu đổi trạng thái nó lại thành đã phê duyệt để chuyển nó lên bảng 1
+    } else if(req.body.action === "recover"){
+        //xử lý ở đây, chủ yếu đổi trạng thái nó lại thành đã phê duyệt để chuyển nó lên bảng 1
+    }
+    res.redirect('http://localhost:8000/admin/baiviet');
+});
+
+router.get('/nguoidung',function (req, res, next) {
+    var user = [{
+        Name: 'Khánh',
+        Sex: 'Nam',
+        Date:'320125',
+        Role: 'user',
+        Id: 1
+    }, {
+        Name: 'Khánh1',
+        Sex: 'Nam',
+        Date:'320125',
+        Role: 'user',
+        Id: 2
+    }
+    , {
+        Name: 'Khánh2',
+        Sex: 'Nam',
+        Date:'320125',
+        Role: 'user',
+        Id: 3
+    }
+    , {
+        Name: 'Khánh3',
+        Sex: 'Nam',
+        Date:'320125',
+        Role: 'user',
+        Id: 4
+    }];
+    res.render('Admin/admin',
+    {
+        layout: 'subLayout',
+        displayDetail: 'false',
+        displayDashboard: 'true',
+        tagAdmin: 'Users',
+        Users: user,
+        TableName: 'Quản lý người dùng'
+    });
+});
+router.post('/nguoidung',function (req, res, next) {
+    console.log(req.body);
+    if(req.body.action === "lock"){ 
+        //khóa account
+    } else if (req.body.action === "delete") {
+        //xóa
+    } 
+    res.redirect('http://localhost:8000/admin/nguoidung');
 });
 
 module.exports = router;
