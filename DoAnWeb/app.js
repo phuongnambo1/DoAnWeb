@@ -9,13 +9,13 @@ var home = require('./controllers/Home');
 var BaiVietChiTiet = require('./controllers/BaiVietChiTiet');
 var hbs_Sec = require('express-handlebars-sections');
 var app = express();
-var expressSession = require('express-session');
+var session = require('express-session');
 var expressValidator = require('express-validator');
 
 var BaiVietChiTiet = require('./controllers/BaiVietChiTiet');
 var taiKhoanController = require('./controllers/TaiKhoanController');
 var docGiaController = require('./controllers/DocGiaController');
-var phongVienController = require('./controllers/DocGiaController');
+var phongVienController = require('./controllers/PhongVienController');
 
 // view engine setup
 app.engine('hbs', hbs({
@@ -50,7 +50,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(expressSession({secret: 'max', saveUninitialized: false, resave: false}));
+app.use(session({secret: 'max', saveUninitialized: false, resave: false}));
 
 app.get('/', (req, res) => {
   res.redirect('/home');
@@ -62,12 +62,12 @@ app.use('/docgia', docGiaController);
 app.use('/phongvien', phongVienController);
 
 // // session
-// app.use(expressSession({
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: true,
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
 
-// }))
+}))
 
 // Express Validator
 app.use(expressValidator({

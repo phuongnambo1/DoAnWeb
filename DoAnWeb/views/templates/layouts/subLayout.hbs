@@ -9,6 +9,7 @@
   <title>{{Title}}</title>
   <!-- Bootstrap core CSS -->
   <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
   <!-- Fontawesome core CSS -->
   <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
   <!--GOOGLE FONT -->
@@ -24,16 +25,20 @@
     {{> header}}
   <div class="container">
     <h1>{{kat}}</h1>
-    {{#xif Page "home"}}
-    {{> banner}}
-    {{else}}
     {{>AdsBanner}}
-    {{/xif}}
     <div class="row">
         {{#xif Page "dangnhap"}}
         {{{body}}}
         {{else}}
-        {{>subNavbar}}
+        <div class="col-md-3">
+            {{#xif displayDetail "true"}}
+            {{>subNavbar}}  
+            {{>subInfo}}
+            {{else}}
+            {{>subNavbar}}  
+            {{/xif}}           
+        </div>
+        
         {{{body}}}
         {{/xif}}
     </div>
