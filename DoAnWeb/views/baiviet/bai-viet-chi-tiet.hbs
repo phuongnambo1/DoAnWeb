@@ -12,15 +12,15 @@
 <div class="content" id="content-bai viet">
     {{#each tpBV}}
      {{!-- neu thanh phan la anh --}}
-    {{#xif type "image"}}
+    {{#xif action "image"}}
         <img class="img-main my-4" id="image" src="{{noi_dung_bai_viet}}"><hr>
     {{/xif}}
 
-    {{#xif type "strong"}}
+    {{#xif action "strong"}}
         <p><strong>{{noi_dung_bai_viet}}</strong></p>
     {{/xif}}
 
-    {{#xif type "text"}}
+    {{#xif action "text"}}
         <p>{{noi_dung_bai_viet}}</p>
     {{/xif}}
     {{/each}}

@@ -5,8 +5,8 @@ exports.load = sql => {
         var cn = mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password: 'khanhhoaLK',
-            database: 'lap_trinh_web'
+            password: 'abc123',
+            database: 'test'
         });
         cn.connect();
         cn.query(sql, function (error, rows, fields) {
@@ -25,8 +25,8 @@ exports.save = sql => {
         var cn = mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password: 'khanhhoaLK',
-            database: 'lap_trinh_web'
+            password: 'abc123',
+            database: 'test'
         });
         cn.connect();
         cn.query(sql, function (error, value) {

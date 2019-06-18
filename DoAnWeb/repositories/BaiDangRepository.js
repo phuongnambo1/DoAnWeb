@@ -12,10 +12,24 @@ exports.createBaiDang = baiDang => {
 exports.searchBaiDang = (tieu_de, noi_dung_tom_tat, tag, chuyen_muc) =>{
     
 }
-
-exports.getBaiDangById = baiDangId => {
-    var sql = `select * from bai_dang where bai_dang_id = ${baiDangId}`;
+// exports.getBaiDangById = baiDangId => {  
+//     console.log('abc');
+//     var sql = `select * from bai_dang where bai_dang_id = ${baiDangId}`;
+//     return data.load(sql);
+// }
+function getBaiDangById(baiDangId) {
+    var sql = `select * from bai_dang where id =` + baiDangId;
+    return data.load(sql);
+}
+// exports.testExport = () => {
+//     console.log('123213');
+// };
+function getBaiDangByChuyenMuc(chuyen_muc_id){
+    var sql = `select * from bai_dang when chuyen_muc_id = ` + chuyen_muc_id;
     return data.load(sql);
 }
 
-module.exports = router;
+
+module.exports.test = test; // = router;
+module.exports.getBaiDangById = getBaiDangById;
+module.exports.getBaiDangByChuyenMuc = getBaiDangByChuyenMuc;

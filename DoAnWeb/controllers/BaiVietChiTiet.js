@@ -1,9 +1,14 @@
 var express = require('express');
+var resBaiDang =  require('../repositories/BaiDangRepository');
+var resbaiviet = require('../repositories/BaiVietRepository');
+var resComment = require('../repositories/com')
+//var baiviet = require('../repositories')
 var router = express.Router();
 
 
 function DataInit() {
   // get bai dang by id: id lấy ra từ: req.params.id
+  
   var BaiDang = {
     id: 1,
     tieu_de: "Giá cao su xuất khẩu vẫn ở mức thấp ",
@@ -170,7 +175,31 @@ function DataInit() {
 };
 }
 var data = DataInit();
+
 router.get('/:id', function(req, res, next) {
+  var BaiDang={};
+  var BaiViet = [];
+  var BaiVietLienQuan = [];
+    resBaiDang.getBaiDangById(2).then((data)=>{
+      BaiDang = data[0];
+      resbaiviet.getListBaiViet(BaiDang.id).then((baiviet)=>{
+        //console.log(BaiDang);
+        for(var i = 0; i < baiviet.length;i++)
+        {
+          BaiViet.push(baiviet[i]);
+        }
+        resBaiDang.getBaiDangByChuyenMuc(BaiDang.chuyen_muc_id).then((listbd)=>{
+        for(var i = listbd.length-1; i >= 0;i--)
+        {
+          BaiVietLienQuan.push(baiviet[i]);
+        }
+        //get tiep cmt
+
+        });
+        });
+    });
+    //var baidang = resBaiDang.getBaiDangById(req.params.id);
+    console.log(baidang);
     res.render('baiviet/bai-viet-chi-tiet', data  );
 });
 
