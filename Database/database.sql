@@ -114,9 +114,33 @@ REPLACE INTO `bai_viet` (`id`, `bai_dang_id`, `noi_dung_bai_viet`, `hinh`, `acti
 	(35, 8, 'Sống trong căn nhà bề thế đầy đủ tiện nghi, ông Đậu Quang Hoàng – một nông dân trồng thanh long ở thôn Hiệp Nhơn chia sẻ: Truớc đây đa phần là nhà tranh vách lá, nhà tranh vách đất, một số nhà có điều kiện hơn thì lợp tôn. Nhưng bây giờ, nhiều người đi xa xứ khoảng chừng 10 năm cũng giật mình', NULL, NULL),
 	(36, 8, 'Ông Hoàng cho biết, trước đây vùng đất này rất nghèo khó. Đất đai khô cằn, thiếu dưỡng chất. Mỗi năm chỉ trồng được một vụ lúa tùy thuộc nước trời, cùng một số loại cây ngắn ngày, nhưng không đủ sống. Gia đình ông cũng vậy. Nhưng với 2.000 trụ thanh long hiện nay, mỗi năm ông thu về hơn nửa tỷ đồng. Không những xây nhà cao cửa rộng, mà nông dân làm thanh long ở đây ai cũng đủ khả năng sắm ô tô.', NULL, NULL),
 	(37, 8, 'Tại xóm Rẫy, thôn Hiệp Nhơn, nơi nghèo nhất xã Tân Thuận năm xưa, những căn biệt thự mới xây mọc lên san sát, màu sơn còn tươi rói. Ít ai ngờ cả xóm nghèo trước đây nay đều là tỷ phú. Có nhà giàu đến nỗi mua xe ô tô tiền tỷ nhưng bỏ không trong biệt thự, mỗi năm mang ra thuê tài xế chở đi chơi chỉ một đôi lần.', NULL, NULL),
-	(38, 8, 'Cũng tại khu xóm Rẫy này, chúng tôi gặp được ông Võ Lâm, 74 tuổi. Hai vợ chồng ông tuy già nhưng vẫn thường ngày chăm sóc thanh long. Uống ngụm trà, hồi tưởng quá khứ ông không nghĩ có lúc mình lại sướng như thời điểm này. Với vườn thanh long 1.200 trụ, mỗi năm thu về hơn 200 triệu đồng, ông không còn lo cảnh lúc đói lúc no như thuở trước.', NULL, NULL);
-/*!40000 ALTER TABLE `bai_viet` ENABLE KEYS */;
+	(38, 8, 'Cũng tại khu xóm Rẫy này, chúng tôi gặp được ông Võ Lâm, 74 tuổi. Hai vợ chồng ông tuy già nhưng vẫn thường ngày chăm sóc thanh long. Uống ngụm trà, hồi tưởng quá khứ ông không nghĩ có lúc mình lại sướng như thời điểm này. Với vườn thanh long 1.200 trụ, mỗi năm thu về hơn 200 triệu đồng, ông không còn lo cảnh lúc đói lúc no như thuở trước.', NULL, NULL),
+    (39,9,'Có Ronaldo hay không có Ronaldo, Juventus vẫn không thể hoàn thành mục tiêu tại đấu trường Champions League.',null,null),
+    (40,9,'Cristiano Ronaldo đã ghi 2 bàn ở cả lượt đi và về trước Ajax tại tứ kết Champions League. Tuy nhiên, chừng đó vẫn là không đủ để “Lão phu nhân” đi tiếp.Cơn thịnh nộ đến như một điều tất yếu, người hâm mộ lại đang phán xét Juventus về số tiền 300 triệu bảng để đưa về siêu sao người Bồ Đào Nha.',null,null),
+    (41,9,'Trong mùa hè 2018, Juventus tin rằng việc đưa về cầu thủ từng 5 lần đăng quang Champions League sẽ giúp họ hóa giải “lời nguyền” 23 năm không thể vô địch.Với khoản tiền chiêu mộ 99,2 triệu bảng, kèm mức lương 49,2 triệu bảng/năm - tương đương là 196,8 triệu bảng trong hợp đồng 4 năm. Quả thực, Juventus sẽ phải mất ngót nghét gần 300 triệu bảng trong khoảng thời gian này để chờ Ronaldo giúp CLB mang về chiếc cúp Champions League.',null,null),
+    (42,9,'Nhưng trở lại với 2 lượt trận tứ kết gặp Ajax, sẽ khó có thể đòi hỏi Ronaldo nhiều hơn, bởi 2 bàn thắng dành cho Juventus thực sự là quá nhiều. Trong thế trận Juventus bị đối thủ lấn lướt hơn, Ronaldo vẫn biết cách bùng nổ và tỏa sáng với những pha lập công quý giá.Rõ ràng, Juventus sẽ phải thay đổi và nhìn nhận lại mọi thứ sau thất bại. Bởi lẽ, siêu sao Bồ Đào Nha đã làm tất cả những gì có thể và chỉ có thể trách Juventus không đủ bản lĩnh để bước tiếp.',null,null),
+    (43,10,'Hải quân Ai Cập là bên mua lại 2 tàu đổ bộ trực thăng Mistral mà Pháp đóng cho Nga nhưng không bàn giao được vì vướng phải các lệnh trừng phạt của phương Tây. Để tăng cường năng lực cho chiếc Mistral cũng như lực lượng yểm trợ hỏa lực đường không, vào năm 2015 Cairo đã đặt mua từ Nga 46 trực thăng tấn công Ka-52 Alligator.',null,null),
+    (44,10,'Mặc dù vậy, sau khi nhận được 3 chiếc Ka-52 đầu tiên thì Ai Cập đã quyết định xem xét lại hợp đồng vì cho rằng Ka-52 gặp vấn đề với động cơ, hệ thống dẫn đường cho bay đêm... chúng bị nhận xét không đáng tin cậy và có thể dẫn tới tai nạn khi hoạt động trong đêm hoặc bay trong điều kiện phức tạp.',null,null),
+    (45,10,'Giải pháp thay thế được đưa ra đó là Ai Cập quyết định chi 1 tỷ USD để mua 10 trực thăng tấn công AH-64E Apache tối tân nhất, 24 động cơ 1700-GE-701D, các linh kiện thay thế và nhiều trang thiết bị đi kèm khác.',null,null),
+    (46,10,'Lý do của việc Cairo đặt mua trực thăng vũ trang Mỹ ngoài việc hiệu suất của chúng đã được khẳng định sau thời gian dài hoạt động tại khu vực Trung Đông thì còn một nguyên nhân khác cũng rất quan trọng.',null,null),
+    (47,10,'Với tư cách là đồng minh Mỹ, Ai Cập không hề muốn làm mất lòng Washington khi họ từng tuyên bố sẽ áp đặt các điều khoản của Đạo luật CAATSA lên Cairo nếu có ý định mua sắm vũ khí Nga, mới đây nhất Ai Cập đã phải hủy ý định mua tiêm kích thế hệ 4,5 Su-35S.',null,null),
+    (48,11,'Real Madrid của HLV Zinedine Zidane rộng cửa có "nhạc trưởng" tuyến giữa của Tottenham - Christian Eriksen hè này khi MU - đối thủ cạnh tranh của họ rất khó có thể giành chữ ký của ngôi sao người Đan Mạch vì những mâu thuẫn khó dung hòa trong quá khứ.',null,null),
+    (49,11,'Bên cạnh Eden Hazard (Chelsea), rất có thể một tiền vệ đẳng cấp thế giới nữa sẽ chia tay giải Ngoại hạng Anh hè này để gia nhập La Liga đầu quân cho Real Madrid. Đó chính là Christian Eriksen (Tottenham Hotspur). Hợp đồng của tiền vệ người Đan Mạch sẽ hết hạn với Tottenham vào năm 2020, nhưng Chủ tịch CLB này - ông Daniel Levy sẽ bán đứt anh ngay trong mùa hè này để thu về 100 triệu euro thay vì mất trắng cựu cầu thủ Ajax năm tới.',null,null),
+    (50,11,'Trong 2 "đại gia" châu Âu đang theo đuổi mình là MU và Real Madrid, Eriksen thích thú viễn cảnh khoác áo "Kền kền trắng" hơn và theo tờ Daily Express, anh sẽ chọn gia nhập đội bóng Hoàng gia Tây Ban Nha. Về phía Tottenham, họ cũng nhất quyết không bán thêm ngôi sao nào cho MU.',null,null),
+    (51,12,'Kể từ nay cho đến hết ngày 30/4, CellphoneS cùng Huawei ra mắt lần đầu tiên chương trình Thu cũ đổi mới - Lên đời Huawei, cùng “chính sách 5 KHÔNG” dành cho khách hàng lên đời các smartphone đến từ Huawei.',null,null),
+    (52,12,'Chương trình lên đời với chính sách 5 KHÔNG diễn ra từ ngày 10/4 – 30/4 đối với 5 trường hợp KHÔNG đáp ứng được các yếu tố khi “đôi trả và lên đời” dưới đây, khách hàng tại CellphoneS vẫn có thể sở hữu cho mình những chiếc smartphone Huawei cụ thể như sau:',null,null),
+    (53,12,'- Không hoạt động
 
+- Không hạn bảo hành
+
+- Không hộp phụ kiện
+
+- Không xuất xứ
+
+- Không bù thêm tiền (áp dụng chung với trả góp 0%)',null,null),
+(54,12,'Khi thu cũ đổi mới, người dùng quan tâm nhất là liệu thiết bị của mình sẽ được định giá như thế nào, yêu cầu ngoại hình ra sao, … Với tiêu chí nhiều người tiếp cận sản phẩm mới của Huawei hơn, CellphoneS hỗ trợ tối đa các loại hình thức thu mua với mức chi phí tốt nhất :',null,null);
+/*!40000 ALTER TABLE `bai_viet` ENABLE KEYS */;
+select*from bai_viet;
 -- Dumping structure for table lap_trinh_web.chuc_vu
 CREATE TABLE IF NOT EXISTS `chuc_vu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
