@@ -1,0 +1,48 @@
+<div class="col-md-9">
+    {{#if success }}
+    <section class="success">
+        <h2>Đổi mật khẩu thành công!</h2>
+    </section>
+    {{else }}
+    <div>
+        {{#if errors }}
+        <section class="errors">
+            <ul>
+                {{#each errors }}
+                <li>{{ this.msg }}</li>
+                {{/each}}
+            </ul>
+        </section>
+        {{/if}}
+        <form method="POST" id="fottt">
+            <div class="form-group input-login">
+                <h2><strong>Thay đổi mật khẩu</strong></h2>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" name="matkhau" id="ownpass-update"
+                        placeholder="Mật khẩu cũ">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" name="matkhau1" id="newpass-update1"
+                        placeholder="Mật khẩu mới">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                    <input type="password" class="form-control" name="matkhau2" id="newpass-update2"
+                        placeholder="Nhập lại mật khẩu mới">
+                </div>
+                <br>
+                <button onclick="submit()" type="submit" class="btn btn-primary">Cập nhật mật khẩu</button>
+            </div>
+        </form>
+    </div>
+    {{/if}}
+    <!--div change info-->
+
+</div>
+{{!-- <script>
+    $("#fottt").submit(function () {
+        return false;
+    });
+</script> --}}

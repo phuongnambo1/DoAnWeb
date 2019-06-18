@@ -1,0 +1,42 @@
+<div class="col-md-9">
+    <!--div change info-->
+    <div>
+        <div class="card">
+            <img src="../assets/img/profile.png" alt="avatar" style="width:100%">
+            <h1>{{DocGia.Ten}}</h1>
+            <p>{{DocGia.CMND}}</p>
+            <p>{{DocGia.DiaChi}}</p>
+            <p>{{DocGia.Sdt}}</p>
+            <p>{{DocGia.Email}}</p>
+            <p><button class="change-info" data-toggle="collapse" data-target="#change">Thay đổi thông tin</button></p>
+        </div>
+        <form  method="POST" action="/docgia/thongtinchitiet" id="change" class="collapse form-group input-login">
+            <h2>Thay đổi thông tin</h2>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" id="fullname-change" name="Name" placeholder="Họ và tên"
+                    required="required">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                <input type="tel" class="form-control" name="IdNumber" placeholder="CMND" required="required">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input type="email" class="form-control" id="email-change" name="Email" placeholder="Địa chỉ email"
+                    required="required">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                <input type="tel" class="form-control" id="phone-number-change" name="Phone" placeholder="Số điện thoại"
+                    required="required">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                <input type="tel" class="form-control" id="address-change" name="Address" placeholder="Địa chỉ" required="required">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        </form>
+    </div>
+</div>

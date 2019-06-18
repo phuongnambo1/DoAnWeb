@@ -1,0 +1,355 @@
+<div class="col-md-9">
+    <!--Quản lý Danh mục-->
+    {{#xif tagAdmin "DanhMuc" }}
+    <div>
+        <h2>{{TableName}}</h2>
+        <hr>
+        <div class="card" style="max-width: 100%;">
+        <h5 class="card-header"><strong>Thêm danh mục</strong></h5>
+        <div class="card-body">
+            <form  method="POST" id="form-danh-muc" onsubmit="submitForm()" action="/admin/danhmuc">
+               <div class="input-group" style="width: 100%;">
+                    <input type="text" class="form-control" name="Name" id="ownpass-update"
+                        placeholder="Tên danh mục">
+                </div>
+                <div class="input-group" style="width: 100%;">
+                    <input type="text" class="form-control" name="Type" id="newpass-update1"
+                        placeholder="Trạng thái">
+                </div>
+                <div class="input-group" style="width: 100%;">
+                    <input type="text" class="form-control" name="Status" id="newpass-update2"
+                        placeholder="Loại">
+                </div>
+                <div class="input-group" style="width: 100%;">
+                                 <input type="hidden" name="isDelete" value="false" />
+                            </div>
+                <button style="float: right;margin-right: 10px;width: 100px;" type="submit"
+                    class="btn btn-primary">Thêm</button>
+            </form>
+        </div>
+
+        </div>
+
+        <div class="table100 ver3" style="overflow-y: auto; max-height: 480px;">
+            <table data-vertable="ver3">
+                <thead>
+                    <tr class="row100 head">
+                        <th class="column100 column1" data-column="column1">Name</th>
+                        <th class="column100 column2" data-column="column2">Status</th>
+                        <th class="column100 column3" data-column="column3">Type</th>
+                        <th class="column100 column4" data-column="column4">Date</th>
+                        <th class="column100 column5" data-column="column5">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="catalogy-table-body">
+                    {{#each Catalogy}}
+                    <tr class="row100">
+                        <td class="column100 column1" data-column="column1">{{Name}}</td>
+                        <td class="column100 column2" data-column="column2">{{Status}}</td>
+                        <td class="column100 column3" data-column="column3">{{Type}}</td>
+                        <td class="column100 column4" data-column="column4">{{Date}}</td>
+                        <td class="column100 column5" data-column="column5" style="text-align: center;">
+                            <form action="/admin/danhmuc" method="POST">
+                            <input type="hidden" name="isDelete" value="true" />
+                             <input type="hidden" name="Id" value="{{Id}}" />
+                             <button style="color: #428bca;" type="submit" > Delete </a>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    {{/xif}}
+    <!--Quản lý tags-->
+    {{#xif tagAdmin "Tag" }}
+    <div>
+        <h2>Quản lý tags</h2>
+        <hr>
+        <div class="card" style="max-width: 100%;">
+        <h5 class="card-header"><strong>Thêm tag:</strong></h5>
+        <div class="card-body">
+            <form  method="POST" id="form-danh-muc" onsubmit="submitForm()" action="/admin/tag">
+               <div class="input-group" style="width: 100%;">
+                    <input type="text" class="form-control" name="Name" id="ownpass-update"
+                        placeholder="Tên tag">
+                </div>
+                <div class="input-group" style="width: 100%;">
+                    <input type="text" class="form-control" name="Type" id="newpass-update1"
+                        placeholder="Trạng thái">
+                </div>
+                <div class="input-group" style="width: 100%;">
+                    <input type="text" class="form-control" name="Status" id="newpass-update2"
+                        placeholder="Loại">
+                </div>
+                <div class="input-group" style="width: 100%;">
+                                 <input type="hidden" name="isDelete" value="false" />
+                            </div>
+                <button style="float: right;margin-right: 10px;width: 100px;" type="submit"
+                    class="btn btn-primary">Thêm</button>
+            </form>
+        </div>
+
+        </div>
+        <div class="table100 ver3" style="overflow-y: auto; max-height: 480px;">
+            <table data-vertable="ver3">
+                <thead>
+                    <tr class="row100 head">
+                        <th class="column100 column1" data-column="column1">Name</th>
+                        <th class="column100 column2" data-column="column2">Status</th>
+                        <th class="column100 column3" data-column="column3">Type</th>
+                        <th class="column100 column4" data-column="column4">Date</th>
+                        <th class="column100 column5" data-column="column5">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="catalogy-table-body">
+                    {{#each Tags}}
+                    <tr class="row100">
+                        <td class="column100 column1" data-column="column1">{{Name}}</td>
+                        <td class="column100 column2" data-column="column2">{{Status}}</td>
+                        <td class="column100 column3" data-column="column3">{{Type}}</td>
+                        <td class="column100 column4" data-column="column4">{{Date}}</td>
+                        <td class="column100 column5" data-column="column5" style="text-align: center;">
+                            <form action="/admin/tag" method="POST">
+                            <input type="hidden" name="isDelete" value="true" />
+                             <input type="hidden" name="Id" value="{{Id}}" />
+                             <button style="color: #428bca;" type="submit" > Delete </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    {{/xif}}
+    <!-- Quản lý bài viêt -->
+    {{#xif tagAdmin "BaiViet" }}
+    <div>
+        <h2>Quản lý bài viết đã duyệt</h2>
+        <hr>
+        <div class="table100 ver3" style="overflow-y: auto; max-height: 480px;">
+            <table data-vertable="ver3">
+                <thead>
+                    <tr class="row100 head">
+                        <th class="column100 column1" data-column="column1">Title</th>
+                        <th class="column100 column2" data-column="column2">Tag</th>
+                        <th class="column100 column3" data-column="column3">Author</th>
+                        <th class="column100 column4" data-column="column4">Date</th>
+                        <th class="column100 column5" data-column="column5">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each BaiVietDaDuyet}}
+                        <tr class="row100">
+                            <td class="column100 column1" data-column="column1">{{titleBV}}</td>
+                            <td class="column100 column2" data-column="column2">{{tags}}</td>
+                            <td class="column100 column3" data-column="column3">{{author}}</td>
+                            <td class="column100 column4" data-column="column4">{{date}}</td>
+                            <td class="column100 column5" data-column="column5" style="text-align: center;">
+                                <button style="color: #428bca;" onclick="onRowClickDetails('{{id}}')"> Chi tiết </button> |
+                                <form action="/admin/danhmuc" style="display: inline;" method="POST">
+                                    <input type="hidden" name="action" value="remove" />
+                                    <input type="hidden" name="Id" value="{{Id}}" />
+                                    <button style="color: #428bca;" type="submit" > Loại bỏ </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div >
+        <h2>Quản lý bài viết đang duyệt</h2>
+        <hr>
+        <div class="table100 ver3" style="overflow-y: auto; max-height: 480px;">
+            <table data-vertable="ver3">
+                <thead>
+                    <tr class="row100 head">
+                        <th class="column100 column1" data-column="column1">Title</th>
+                        <th class="column100 column2" data-column="column2">Tag</th>
+                        <th class="column100 column3" data-column="column3">Author</th>
+                        <th class="column100 column4" data-column="column4">Date</th>
+                        <th class="column100 column5" data-column="column5">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each BaiVietChuaDuyet}}
+                        <tr class="row100">
+                            <td class="column100 column1" data-column="column1">{{titleBV}}</td>
+                            <td class="column100 column2" data-column="column2">{{tags}}</td>
+                            <td class="column100 column3" data-column="column3">{{author}}</td>
+                            <td class="column100 column4" data-column="column4">{{date}}</td>
+                            <td class="column100 column5" data-column="column5" style="text-align: center;">
+                                <button style="color: #428bca;" onclick="onRowClickDetails('{{id}}')"> Chi tiết </button> |
+                                <form action="/admin/danhmuc" style="display: inline;" method="POST">
+                                    <input type="hidden" name="action" value="approve" />
+                                    <input type="hidden" name="Id" value="{{Id}}" />
+                                    <button style="color: #428bca;" type="submit" > Phê duyệt </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div >
+        <h2>Quản lý bài đã loại bỏ</h2>
+        <hr>
+        <div class="table100 ver3" style="overflow-y: auto; max-height: 480px;">
+            <table data-vertable="ver3">
+                <thead>
+                    <tr class="row100 head">
+                        <th class="column100 column1" data-column="column1">Title</th>
+                        <th class="column100 column2" data-column="column2">Tag</th>
+                        <th class="column100 column3" data-column="column3">Author</th>
+                        <th class="column100 column4" data-column="column4">Date</th>
+                        <th class="column100 column5" data-column="column5">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each BaiVietLoaiBo}}
+                        <tr class="row100">
+                            <td class="column100 column1" data-column="column1">{{titleBV}}</td>
+                            <td class="column100 column2" data-column="column2">{{tags}}</td>
+                            <td class="column100 column3" data-column="column3">{{author}}</td>
+                            <td class="column100 column4" data-column="column4">{{date}}</td>
+                            <td class="column100 column5" data-column="column5" style="text-align: center;">
+                                <button style="color: #428bca;" onclick="onRowClickDetails('{{id}}')"> Chi tiết </button> |
+                                <form action="/admin/danhmuc" style="display: inline;" method="POST">
+                                    <input type="hidden" name="action" value="recover" />
+                                    <input type="hidden" name="Id" value="{{Id}}" />
+                                    <button style="color: #428bca;" type="submit" > Phục hồi </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    {{/xif}}
+    <!-- Quản lý người dùng -->
+    {{#xif tagAdmin "Users" }}
+    <div >
+        <h2>Quản lý user</h2>
+        <hr>
+        <div class="table100 ver3">
+            <table data-vertable="ver3">
+                <thead>
+                    <tr class="row100 head">
+                        <th class="column100 column1" data-column="column1">Name</th>
+                        <th class="column100 column2" data-column="column2">Role</th>
+                        <th class="column100 column3" data-column="column3">Sex</th>
+                        <th class="column100 column4" data-column="column4">Date</th>
+                        <th class="column100 column5" data-column="column5">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Users}}
+                    <tr class="row100" id="user1">
+                        <td class="column100 column1" data-column="column1">{{Name}}</td>
+                        <td class="column100 column2" data-column="column2">{{Role}}</td>
+                        <td class="column100 column3" data-column="column3">{{Sex}}</td>
+                        <td class="column100 column4" data-column="column4">{{Date}}</td>
+                        <td class="column100 column5" data-column="column5" style="text-align: center;">
+                            <form action="/admin/nguoidung" style="display: inline;" method="POST">
+                                    <input type="hidden" name="action" value="lock" />
+                                    <input type="hidden" name="Id" value="{{Id}}" />
+                                    <button style="color: #428bca;" type="submit" > Khóa </button>
+                                </form>
+                            |
+                            <form action="/admin/nguoidung" style="display: inline;" method="POST">
+                                    <input type="hidden" name="action" value="delete" />
+                                    <input type="hidden" name="Id" value="{{Id}}" />
+                                    <button style="color: #428bca;" type="submit" > Xóa </button>
+                                </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    {{/xif}}
+    <!-- Quản lý tác giả -->
+    {{#xif tagAdmin "Editor" }}
+    <div>
+        <h2>Quản lý tác giả</h2>
+        <hr>
+        <div class="table100 ver3">
+            <table data-vertable="ver3">
+                <thead>
+                    <tr class="row100 head">
+                        <th class="column100 column1" data-column="column1">Name</th>
+                        <th class="column100 column2" data-column="column2">Role</th>
+                        <th class="column100 column3" data-column="column3">Sex</th>
+                        <th class="column100 column4" data-column="column4">Posts</th>
+                        <th class="column100 column5" data-column="column5">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row100" id="userz1">
+                        <td class="column100 column1" data-column="column1">Khánh</td>
+                        <td class="column100 column2" data-column="column2">User</td>
+                        <td class="column100 column3" data-column="column3">Male</td>
+                        <td class="column100 column4" data-column="column4">15</td>
+                        <td class="column100 column5" data-column="column5">
+                            <a> Edit </a>
+                            |
+                            <a> Details </a>
+                            |
+                            <a onclick="onRowClickDelete('userz1')"> Delete </a>
+                        </td>
+                    </tr>
+
+                    <tr class="row100" id="userz2">
+                        <td class="column100 column1" data-column="column1">Nam</td>
+                        <td class="column100 column2" data-column="column2">User</td>
+                        <td class="column100 column3" data-column="column3">Gay</td>
+                        <td class="column100 column4" data-column="column4">13</td>
+                        <td class="column100 column5" data-column="column5">
+                            <a> Edit </a>
+                            |
+                            <a> Details </a>
+                            |
+                            <a onclick="onRowClickDelete('userz2')"> Delete </a>
+                        </td>
+                    </tr>
+
+                    <tr class="row100" id="userz3">
+                        <td class="column100 column1" data-column="column1">Hòa</td>
+                        <td class="column100 column2" data-column="column2">Guest</td>
+                        <td class="column100 column3" data-column="column3">Gay</td>
+                        <td class="column100 column4" data-column="column4">10</td>
+                        <td class="column100 column5" data-column="column5">
+                            <a> Edit </a>
+                            |
+                            <a> Details </a>
+                            |
+                            <a onclick="onRowClickDelete('userz3')"> Delete </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    {{/xif}}
+</div>
