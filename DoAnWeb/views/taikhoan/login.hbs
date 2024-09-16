@@ -1,0 +1,113 @@
+<div class="noti-center">
+    <h2>Đăng nhập dưới đây</h2>
+</div>
+{{#if success }}
+<section class="success">
+    <h2>Đăng nhập thành công!</h2>
+</section>
+{{else }}
+<div style="text-align: center;">
+    {{#if errors }}
+    <section class="errors">
+        <ul>
+            {{#each errors }}
+            <li>{{ this.msg }}</li>
+            {{/each}}
+        </ul>
+    </section>
+    {{/if}}
+
+
+    <form action="/taikhoan/dangnhap" id="form-login" method="POST" name="login">
+        <div class="form-group input-login">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Tên đăng nhập"
+                    required="required">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu"
+                    required="required">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" id="login">Đăng nhập</button>
+            <a href="/taikhoan/quenmatkhau"><button class="btn btn-danger" id="forget-password">Quên mật
+                    khẩu</button></a>
+        </div>
+    </form>
+     <button type="submit" class="btn btn-primary" onclick="window.location.href=`http://localhost:8000/auth/fb`">Đăng nhập bằng facebook</button>
+</div>
+{{/if}}
+
+<hr>
+<div class="noti-center">
+    <h2>Nếu chưa có tài khoản, đăng ký ngay nào</h2>
+</div>
+
+{{#if success1 }}
+<section class="success">
+    <h2>Đăng nhập thành công!</h2>
+</section>
+{{else }}
+<div>
+    {{#if errors1 }}
+    <section class="errors">
+        <ul>
+            {{#each errors1 }}
+            <li>{{ this.msg }}</li>
+            {{/each}}
+        </ul>
+    </section>
+    {{/if}}
+
+
+    <form action="/taikhoan/dangky" method="post" name="registry">
+    <div class="form-group input-login">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" class="form-control" id="ten_dang_nhap" name="ten_dang_nhap" placeholder="Tên đăng nhập"
+                required="required">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" class="form-control" id="mat_khau" name="mat_khau" placeholder="Mật khẩu"
+                required="required">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" class="form-control" id="password-repeat" name="password-repeat"
+                placeholder="Nhập lại mật khẩu" required="required">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" class="form-control" id="ten_nguoi_dung" name="ten_nguoi_dung" placeholder="Họ và tên"
+                required="required">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+            <input type="tel" class="form-control" id="ngay_sinh" name="ngay_sinh" placeholder="Ngày sinh"
+                required="required">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Địa chỉ email"
+                required="required">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+            <input type="tel" class="form-control" id="so_dien_thoai" name="so_dien_thoai" placeholder="Số điện thoại"
+                required="required">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+            <input type="tel" class="form-control" id="dia_chi" name="dia_chi" placeholder="Địa chỉ"
+                required="required">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info" id="signup">Đăng ký</button>
+    </div>
+</form>
+</div>
+{{/if}}
+
